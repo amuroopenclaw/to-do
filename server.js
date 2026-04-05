@@ -12,7 +12,7 @@ const port = process.env.PORT || 8080;
 app.use(express.static(path.resolve(__dirname, 'dist')));
 
 // For any other route, serve the React index.html (SPA routing)
-app.get('*', (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 
